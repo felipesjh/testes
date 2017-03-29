@@ -1,0 +1,445 @@
+*{
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container{
+	max-width: 960px;
+	margin:0 auto;
+	position: relative;
+}
+
+.menu-uma-borda{
+	border-right: solid 1px #c9c9c9;
+}
+
+/*********************************************
+
+
+					CABEÇALHO  		
+
+
+*******************************************/
+header{
+	position: relative;
+	background-color: #eeeeee;
+	margin-bottom: 44px;
+}
+
+/* logotipo */
+
+.posicao-logo{
+	position: relative;
+}
+
+.logo{
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1); 
+	width: 80%;
+	height: 100px;
+	background-color: #fff;
+}
+
+.logo img{
+	
+}
+
+/* Menu principal */
+
+.menu-principal{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.menu-principal ul{
+	list-style: none;
+}
+
+.menu-principal li{
+	display: inline-block;
+}
+
+.menu-principal a{
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+	color: #898989;  
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+.menu-principal a:hover{
+	text-decoration: underline;
+}
+
+.menu-bordas{
+	border-right: solid 1px #898989;
+	border-left: solid 1px #898989;
+}
+
+/* botão */
+
+.btn-teste{
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #f7941e;
+	width: 100%;
+	color: #fff;
+	border-radius: 5px;
+	border:1px solid ;
+	padding: 5px; 
+	margin-top: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+/* breadcrumb */
+
+.breadcrumb{
+	position: absolute;
+	left: 180px;
+	top: 55px;
+}
+
+.breadcrumb a{
+	text-decoration: none;
+	color: #898989;
+}
+
+.breadcrumb a:hover{
+	text-decoration: underline;
+}
+
+.seta{
+	fill: #898989;
+}
+
+/*********************************************
+
+
+					BANNERS 		
+
+
+*******************************************/
+
+.banners{
+	padding-top: 40px;
+	padding-bottom:40px;
+}
+
+.banner-carrossel{
+	height: 250px;
+}
+
+.banner-carrossel img{
+	width: 95%;
+	height: 100%;
+}
+
+.banner2{
+	height: 250px;
+}
+
+.banner2 img{
+	width: 100%;
+	height: 100%;
+}
+
+
+/*********************************************
+
+
+					CONTEÚDO 		
+
+
+*******************************************/
+
+/* MENU LATERAL */
+
+.menu-lateral{
+	border: 1px solid #c9c9c9;
+	padding-left:10px;
+	padding-right: 10px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+.menu-lateral h3{
+	border-bottom: 1px solid #c9c9c9; 
+	font-size: 16px;
+	font-weight: 400px;
+	color: #f7941e;
+	padding-bottom: 10px;
+}
+
+.menu-lateral h4{
+	font-size: 14px;
+	font-weight: bold;
+	color: #20b7ce;
+	padding-top: 16px;
+	padding-bottom: 10px;
+}
+
+.menu-lateral ul{
+	list-style: none;
+}
+
+.menu-lateral a{
+	font-size: 14px;
+	font-weight: 400;
+	color: #898989;
+	text-decoration: none;
+}
+
+.menu-lateral a:hover{
+	text-decoration: underline;
+}
+
+/* CONTEUDO CENTRAL DO SITE */
+
+.conteudo{
+	display:flex;
+	flex-direction:column;
+	padding-left: 20px;
+}
+
+.conteudo-linha1{
+	display: flex;
+	flex: 1;
+}
+
+.conteudo h2{
+	font-size: 20PX;
+	font-weight: 200;
+	border-bottom: 1px solid #c9c9c9;
+	padding-bottom: 20px;
+	margin-right: 10px;
+}
+
+.texto.gato{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.texto{
+	padding-right: 20px;
+}
+
+.texto h2 + p{
+	padding-top: 20px;
+}
+
+.img-gato{
+	margin-top: 20px;
+	border-radius: 10px;
+}
+
+/* BANNER PÃES*/
+
+.banner-pao{
+	height: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	position: relative;
+}
+
+.banner-pao figcaption{
+	position: absolute;
+	bottom: 5px;
+	background-color: rgba(0,0,0,.5);
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+}
+
+/** caixas com sucesso, editar e erro **/
+
+.boxes{
+	display: flex;
+	flex: 1;
+	text-align: center;
+}
+
+.box{
+	position: flex;
+	flex-direction:column;
+	flex: 1;
+	border: 1px solid #f7941e;
+	padding: 16px 30px; 
+	margin: 0 10px 80px 10px; 
+}
+
+.box img{
+	width: 50px;
+	height: 50px;
+	margin:auto;
+	margin-bottom: 16px;
+	
+}
+
+/*********************************************
+
+
+					RODAPÉ  		
+
+
+*******************************************/
+
+footer{
+	background-color: #eeeeee;
+	padding-top: 40px;
+}
+
+footer h2{
+	font-weight: 400;
+	font-size: 20px;
+}
+
+footer h3{
+	font-weight: bold;
+	font-size: 16px;
+	margin: 20px 0;
+}
+
+/* MENUS RODAPÉ */
+
+.rodape-menu{
+	margin-bottom: 40px;
+}
+
+.flex{
+	display: flex;
+	flex-direction: column;
+}
+
+.flex a{
+	font-size: 13px;
+	font-weight: 400;
+	text-decoration: none;
+	color: #898989;
+}
+
+.flex a:hover{
+	text-decoration: underline;
+}
+
+.flex-rodape{
+	display: flex;
+	flex:1;
+}
+
+.flex-rodape h3{
+	flex:1;
+}
+
+.flex-rodape ul{
+	list-style: none;
+}
+
+.flex-rodape ul, .flex-rodape .menu1, .flex-rodape a{
+	flex:1;
+}
+
+.menu1{
+ 	display: flex;
+}
+
+.flex-espaco{
+	flex:1;
+}
+
+.rodape-outros-links{
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+}
+
+.rodape-outros-links a{
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: underline;
+	color: #898989;
+}
+
+
+
+/***********************  MENU LOGOS  *********************************/
+
+
+.lista-logos{
+	display: flex;
+	flex: 1;
+	flex-direction:column;
+	align-items: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.linhas-logo img{
+	margin-right: 30px;
+}
+
+.margem-entre-logos{
+	margin-top: 20px;
+}
+
+/****************  MENU INSTITUCIONAL   ***********************/
+.menu-institucional{
+	border-top: solid 1px #c9c9c9;
+	padding: 30px 0;
+	width: 100%;
+}
+
+.menu-institucional nav{
+	display: flex;
+}
+
+.menu-institucional ul{
+	flex:1;
+}
+
+.menu-institucional a{
+	font-weight: 600;
+	font-size: 13px;
+	color: #898989;
+	padding-right: 20px;
+	padding-left: 20px; 
+}
+
+
+.menu-inst-a li{
+	list-style: none;
+	display: inline-block;
+}
+
+
+.menu-inst-b{
+	text-align: right;
+}
+
+
+.menu-inst-b li{
+	list-style: none;
+	display:inline-block;
+}
+
+.menu-inst-b li a{
+}
+
+/**** COPYRIGHT ****/
+
+.copyright{
+	background-color: #c9c9c9;
+	font-size: 13px;
+	font-weight: 600;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 80px; 
+}
