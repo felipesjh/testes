@@ -1,101 +1,122 @@
-/*******************************************
+var formulario = document.querySelector("#formulario-cadastro");
 
-Botão que adiciona valores do formulário para Lista de contatos.
-
-****************************************/
+var inputNome = formulario.querySelector("#form-nome");
 
 var botaoSalvar = document.querySelector("#salvar-formulario");
 
-botaoSalvar.addEventListener("click", function(event) {
-    event.preventDefault();
+botaoSalvar.addEventListener("click", function(event){
 
-    
-    var form = document.querySelector("#formulario-cadastro");
+	event.preventDefault();
 
-    var cliente = obterValorFormulario(form);
+	//pegar valor do fomrulário
+	var form = document.querySelector("#formulario-cadastro");
+	
+	//chamando função para criar um objeto cadastro
+	var cadastro = obtemDadosFormulario(form);
 
-    /* CRIANDO ELEMENTOS HTML DENTRO DE UM SPAN*/
-   
-    var clienteDiv = criarLinhaContatos(cliente);
-
-    if(cliente.nome == ""){
+	if(cadastro.nome == ""){
     	console.log("erro nome");
     	return;
     }
 
-    if(cliente.telefone == ""){
+    if(cadastro.telefone == "" || cadastro.telefone.length < 14){
     	console.log("erro telefone");
     	return;
     }
 
-    if(cliente.email == ""){
+    if(cadastro.email == ""){
     	console.log("erro email");
     	return;
     }
-    /*INSERIR DIV CRIADA NA SECTION DE LISTA DE CADASTRO*/
 
-    var listaCadastroSection = document.querySelector("#lista-cadastro");
+    if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(cadastro.email))) {
+		console.log("É necessário o preenchimento de um endereço de e-mail válido.");
+		return;
+	}
+	//chamando função que cria elementos para acrescentar valores na lista
+	 var cadastroDiv = criarDiv(cadastro);
 
-    listaCadastroSection.appendChild(clienteDiv);
+	//inserindo os elementos do cadastro do cliente na "lista de cadastro"
+	var listaCadastro = document.querySelector("#lista-cadastro");
+	listaCadastro.appendChild(cadastroDiv);
 
-    form.reset();
+	form.reset();
+
+
 });
 
-/*******************************************
-
-Botão que adiciona valores do formulário para Lista de contatos.
-
-****************************************/
-
-var botaoLimpar = document.querySelector("#limpar-formulario");
-
-botaoLimpar.addEventListener("click", function(event) {
-    
-    event.preventDefault();
-
-    var form = document.querySelector("#formulario-cadastro");
-
-    var cliente = obterValorFormulario(form);
-
-    /*INSERIR DIV CRIADA NA SECTION DE LISTA DE CADASTRO*/
-
-    var listaCadastroSection = document.querySelector("#lista-cadastro");
-
-    listaCadastroSection.removeChild("div");
-
-    form.reset();
-});
-
-
-/* Função que obtém os valores do formulário e colocando dentro do objeto cliente */
-function obterValorFormulario(form){
-	var cliente = {
+function obtemDadosFormulario(form){
+	var cadastro = {
 		nome: form.nome.value,
 		telefone: form.telefone.value,
 		email: form.email.value
 	}
 
-	return cliente;
+	return cadastro;
 }
 
-/* Função que cria os elementos para receber dados do formulário */
-function criarLinhaContatos(cliente){
-	var clienteDiv = document.createElement("div");
+function criarDiv(cadastro){
+	//criar div e spans
+	var cadastroDiv = document.createElement("div");
+	cadastroDiv.classList.add("lista-contatos");
 
-    var nomeSpan = document.createElement("nome");
-    var telefoneSpan = document.createElement("telefone");
-    var emailSpan = document.createElement("email");
+	var nomeP = document.createElement("p");
+	nomeP.classList.add("lista-nome");
+	var telefoneSpan = document.createElement("span");
+	telefoneSpan.classList.add("lista-telefone");
+	var emailSpan = document.createElement("span");
+	emailSpan.classList.add("lista-email");
 
-    /*INSERIR VALORES DO FORMULÁRIO NOS SPANS CRIADAS*/
+	//inserindo valores do formulario nos elementos criados "div e spans"
+	nomeP.textContent = cadastro.nome;
+	telefoneSpan.textContent = cadastro.telefone;
+	emailSpan.textContent = cadastro.email;
 
-    nomeSpan.textContent = cliente.nome;
-    telefoneSpan.textContent = cliente.telefone;
-    emailSpan.textContent = cliente.email;
+	//inserindo os elementos criados dentro de uma div
+	cadastroDiv.appendChild(nomeP);
+	cadastroDiv.appendChild(telefoneSpan);
+	cadastroDiv.appendChild(emailSpan);
 
-    /* INSERIR SPANS DENTRO DA DIV CRIADA*/
-    clienteDiv.appendChild(nomeSpan);
-    clienteDiv.appendChild(telefoneSpan);
-    clienteDiv.appendChild(emailSpan);
-
-    return clienteDiv;
+	return cadastroDiv;
 }
+
+/**********   VALIDAÇÃO TELEFONE   ********/
+
+var campoTelefone = document.querySelector("#form-telefone");
+campoTelefone.addEventListener("input", function() {
+    var valorTelefone = campoTelefone.value;
+
+    campoTelefone.value = mascaraTelefone(valorTelefone);
+});
+
+
+function mascaraTelefone(valorTelefone){
+    valorTelefone=valorTelefone.replace(/\D/g,"");           
+    valorTelefone=valorTelefone.replace(/^(\d{2})(\d)/g,"($1) $2");
+    valorTelefone=valorTelefone.replace(/(\d)(\d{4})$/,"$1-$2"); 
+    return valorTelefone;
+}
+
+/**********   VALIDAÇÃO EMAIL   ********/
+/*
+var campoEmail = document.querySelector("#form-email");
+campoEmail.addEventListener("input", function() {
+    var valorEmail = campoEmail.value;
+
+    if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(valorEmail))) {
+		console.log("É necessário o preenchimento de um endereço de e-mail válido.");
+		campoEmail .focus();
+		return false;
+	}else{
+		return valorEmail;
+		}
+
+});
+
+*//*
+function mascaraEmail(valorEmail){          
+    /*var valorEmail = valorEmail /\S+@\S+\.\S+/;*/
+/*
+    return re.test(valorEmail);
+}*/
+

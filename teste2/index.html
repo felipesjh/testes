@@ -9,7 +9,7 @@
 <body>
 	<h1>Formulário de cadastro</h1>
 	<section class="container">
-		<h2>Preencha o formulário de cadastro</h2>
+		<h2>Adicionar ao cadastro</h2>
 		<form id="formulario-cadastro">
 			<div class="form-group">
 				<label for="form-nome">Nome:</label>
@@ -17,7 +17,7 @@
 			</div>	
 			<div class="form-group">
 				<label for="form-telefone">Telefone:</label>
-				<input type="phone" id="form-telefone" name="telefone" class="form-control" placeholder="(xx) xxxxx-xxxx">
+				<input type="phone" id="form-telefone" name="telefone" class="form-control" placeholder="(xx) xxxxx-xxxx" maxlength="15">
 			</div>
 			<div class="form-group">	
 				<label for="form-email">E-mail:</label>
@@ -29,11 +29,6 @@
 	</section>
 	<section class="container" id="lista-cadastro">
 		<h2>Lista de cadastros</h2>
-		<div id="lista-contatos">
-			<span id="lista-nome"></span>
-			<span id="lista-telefone"></span>
-			<span id="lista-email"></span>
-		</div>	
 	</section>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
