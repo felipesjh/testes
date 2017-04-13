@@ -20,4 +20,14 @@ h1{
 	text-decoration: : underline;
 	font-style: italic;
 	padding-right: 5px;
+	display: inline-block;
+}
+
+span{
+	display: none;
+	color:red;
+}
+
+.msg-erro{
+	display: inline-block;
 }

@@ -4,8 +4,9 @@ var inputNome = formulario.querySelector("#form-nome");
 
 var botaoSalvar = document.querySelector("#salvar-formulario");
 
+//Evento que ativa o botao salvar do formulário
 botaoSalvar.addEventListener("click", function(event){
-
+	//Retira o comportamento padrão de enviar do botão do formulário
 	event.preventDefault();
 
 	//pegar valor do fomrulário
@@ -14,25 +15,41 @@ botaoSalvar.addEventListener("click", function(event){
 	//chamando função para criar um objeto cadastro
 	var cadastro = obtemDadosFormulario(form);
 
+	//variaveis para selecionar as spans de erros
+	var erroNome = document.querySelector("#erro-nome");
+	var erroTelefone = document.querySelector("#erro-telefone");
+	var erroEmail = document.querySelector("#erro-email");
+	var erroValEmail = document.querySelector("#erro-valida-email");
+
+	//validação do formulário
 	if(cadastro.nome == ""){
-    	console.log("erro nome");
+		erroNome.classList.add("msg-erro");
     	return;
+    }else{
+    	erroNome.classList.remove("msg-erro");
     }
 
     if(cadastro.telefone == "" || cadastro.telefone.length < 14){
-    	console.log("erro telefone");
+    	erroTelefone.classList.add("msg-erro");
     	return;
+    }else{
+    	erroTelefone.classList.remove("msg-erro");
     }
 
     if(cadastro.email == ""){
-    	console.log("erro email");
+    	erroEmail.classList.add("msg-erro");
     	return;
+    }else{
+    	erroEmail.classList.remove("msg-erro");
     }
 
     if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(cadastro.email))) {
-		console.log("É necessário o preenchimento de um endereço de e-mail válido.");
+		erroValEmail.classList.add("msg-erro");
 		return;
+	}else{
+		erroValEmail.classList.remove("msg-erro");
 	}
+
 	//chamando função que cria elementos para acrescentar valores na lista
 	 var cadastroDiv = criarDiv(cadastro);
 
@@ -45,6 +62,7 @@ botaoSalvar.addEventListener("click", function(event){
 
 });
 
+//Função que cria um objeto de cadastro
 function obtemDadosFormulario(form){
 	var cadastro = {
 		nome: form.nome.value,
@@ -55,6 +73,7 @@ function obtemDadosFormulario(form){
 	return cadastro;
 }
 
+// Função que cria os elementos "<p>" da lista de cadastros 
 function criarDiv(cadastro){
 	//criar div e spans
 	var cadastroDiv = document.createElement("div");
@@ -62,9 +81,9 @@ function criarDiv(cadastro){
 
 	var nomeP = document.createElement("p");
 	nomeP.classList.add("lista-nome");
-	var telefoneSpan = document.createElement("span");
+	var telefoneSpan = document.createElement("p");
 	telefoneSpan.classList.add("lista-telefone");
-	var emailSpan = document.createElement("span");
+	var emailSpan = document.createElement("p");
 	emailSpan.classList.add("lista-email");
 
 	//inserindo valores do formulario nos elementos criados "div e spans"
@@ -80,7 +99,7 @@ function criarDiv(cadastro){
 	return cadastroDiv;
 }
 
-/**********   VALIDAÇÃO TELEFONE   ********/
+/**********   VALIDAÇÃO CAMPO TELEFONE   ********/
 
 var campoTelefone = document.querySelector("#form-telefone");
 campoTelefone.addEventListener("input", function() {
@@ -96,27 +115,3 @@ function mascaraTelefone(valorTelefone){
     valorTelefone=valorTelefone.replace(/(\d)(\d{4})$/,"$1-$2"); 
     return valorTelefone;
 }
-
-/**********   VALIDAÇÃO EMAIL   ********/
-/*
-var campoEmail = document.querySelector("#form-email");
-campoEmail.addEventListener("input", function() {
-    var valorEmail = campoEmail.value;
-
-    if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(valorEmail))) {
-		console.log("É necessário o preenchimento de um endereço de e-mail válido.");
-		campoEmail .focus();
-		return false;
-	}else{
-		return valorEmail;
-		}
-
-});
-
-*//*
-function mascaraEmail(valorEmail){          
-    /*var valorEmail = valorEmail /\S+@\S+\.\S+/;*/
-/*
-    return re.test(valorEmail);
-}*/
-
