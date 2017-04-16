@@ -6,13 +6,14 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/grid.css">
   <link rel="stylesheet" type="text/css" href="css/principal.css">
+  <link rel="stylesheet" type="text/css" href="css/form.css">
 </head>
 <body>
 
   <header class="row">
   	<div class="container">
 	  	<div class="col-2 posicao-logo">
-	  		<img class="logo" src="img/svgs/logo.svg">
+	  		<a href="index.html"><img class="logo" src="img/svgs/logo.svg"></a>
 	  	</div>
 	  	<nav class="col-8 menu-principal">
 	  		<ul>
@@ -36,16 +37,7 @@
   	</div>
   </header>
 
-  <section class="row banners container">
-  	<div class="banner-carrossel col-9">
-  		<a href="#"><img src="img/city.jpg" alt="banner"></a>
-  	</div>
-  	<div class="col-3 banner2">	
-  		<a href="#"><img src="img/nature.jpg"></a>
-  	</div>	
-  </section>
-
-  <main class="container">
+  <main class="container container-form">
   	<div class="row">
 	  	<aside class="col-3 menu-lateral">
 	  		<h3>Áestigulum</h3>
@@ -82,44 +74,37 @@
 	  	</aside>
 
 	  		<div class="col-9 conteudo">
-	  			<div class="conteudo-linha1">
-			  		<div class="texto">
-			  			<h2>Suspendisse et</h2>
-			  			<p>Maecenas ut ante posuere, ultrices diam ut, tempus mauris. Nam tincidunt nisl dui, id porta dui ornare vel. Phasellus ac lectus eu metus accumsan elementum fringilla sed felis. Praesent a eros neque.</p>
-			  			<br>
-			  			<p>Nam dui lacus, blandit sit amet aliquam at, lobortis ut mauris. Pellentesque scelerisque velit eu varius ultrices. Curabitur viverra, erat sit amet auctor suscipit, massa lectus dictum erat, imperdiet lobortis mauris diam nec lacus. Proin lacinia eros eget congue lacinia.</p>
-			  		</div>
+	  			
+		  		<div class="formulario">
+		  			<h2>Étiam enim massa</h2>
+		  			<p>Campos com <b>*</b> são de preenchimento obrigatório.</p>
+		  			
+		  			<form id="formulario-cadastro">
+						
+						<label for="form-nome">Nome:<b>*</b></label>
+						<span id="erro-nome">Erro ao preencher nome!</span>
+						<br>
+						<input type="text" id="form-nome" name="nome" placeholder="Digite o seu nome">
+						<br>	
+						<label for="form-telefone">Telefone:<b>*</b></label>
+						<span id="erro-telefone">Erro ao preencher telefone!</span>
+						<br>
+						<input type="phone" id="form-telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" maxlength="15">
+						<br>			
+						<label for="form-email">e-Mail:<b>*</b></label>
+						<span id="erro-email">Erro ao preencher e-mail!</span>
+						<span id="erro-valida-email">É necessário o preenchimento de um endereço de e-mail válido!</span>	
+						<br>
+						<input type="email" id="form-email" name="email" placeholder="xxx@xxx.xx">
+						<br>
+						<button id="salvar-formulario">Salvar</button>
+						<button id="limpar-formulario">Limpar</button>
+					</form>
 
-			  		<div class="texto-gato">
-			  			<h2>Suspendisse et</h2>
-			  			<img src="img/cats.jpg" class="img-gato" alt="gato">
-			  		</div>	
-			  	</div>
-
-		  		<figure class="banner-pao">
-		  			<img src="img/food.jpg" alt="pães">
-		  			<figcaption>Etiam sagittis nisi risus, vitae finibus ligula aliquam sit amet.</figcaption>
-		  		</figure>
-
-		  		<div class="boxes">
-
-		  			<figure class="box">
-		  				<img src="img/svgs/sucesso.svg">
-		  				<figcaption>Ùonec laoreet sem id vehicula vehicula.</figcaption>
-		  			</figure>
-
-		  			<figure class="box">
-		  				<img src="img/svgs/erro.svg">
-		  				<figcaption>Mauris non congue justo, ut convallis purus. Vestibulum ligula.</figcaption>
-		  			</figure>
-
-		  			<figure class="box">
-		  				<img src="img/svgs/editar.svg">
-		  				<figcaption>Morbi augue tellus, viverra vestibulum felis et, eleifend consectetur ipsum felis et, eleifend. </figcaption>
-		  			</figure>
-
-		  		</div>	
-
+		  		</div>
+			  	<div id="lista-cadastro">
+						<h2>Lista de cadastros</h2>
+				</div>
 	  		</div>
   		</div>
   
@@ -204,5 +189,7 @@
 	  		<p>Donec in maximus metus. suspendisse volutpat ornare congue.</p>
 	  	</section>	
   </footer>
+
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
